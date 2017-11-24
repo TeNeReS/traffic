@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS records;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users
+(
+  id            INTEGER AUTO_INCREMENT,
+  PRIMARY KEY (id)
+)
+AUTO_INCREMENT = 100000;
+
+CREATE TABLE records
+(
+  id            INTEGER AUTO_INCREMENT,
+  user_id       INTEGER NOT NULL,
+  date_time     TIMESTAMP,
+  uplink        INTEGER,
+  downlink      INTEGER,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+)
+AUTO_INCREMENT = 200000;
