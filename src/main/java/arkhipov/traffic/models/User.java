@@ -1,5 +1,7 @@
 package arkhipov.traffic.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "user_seq")
     private Integer id;
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List <Record> records;
 

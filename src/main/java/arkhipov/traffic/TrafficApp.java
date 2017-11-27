@@ -22,19 +22,19 @@ public class TrafficApp {
         SpringApplication.run(TrafficApp.class, args);
     }
 
-    @Bean
-    public CommandLineRunner demo(UserRepository userRepository, RecordRepository recordRepository) {
-        return (args) -> {
-
-            List<Record> list = recordRepository.findByUserIdAndDateTimeBetween(100001, LocalDateTime.of(2017, 5, 1, 0, 30, 10), LocalDateTime.of(2017, 5, 1, 0, 30, 11)).orElse(null);
-
-            for (Record record : list) {
-                log.info(record.toString());
-            }
-
+//    @Bean
+//    public CommandLineRunner demo(UserRepository userRepository, RecordRepository recordRepository) {
+//        return (args) -> {
+//
+//            List<Record> list = recordRepository.findByUserIdAndDateTimeBetween(100001, LocalDateTime.of(2017, 5, 1, 0, 30, 10), LocalDateTime.of(2017, 5, 1, 0, 30, 11)).orElse(null);
+//
+//            for (Record record : list) {
+//                log.info(record.toString());
+//            }
+//
 //            for (User user : userRepository.findAll()) {
 //                log.info(user.toString());
 //            }
-        };
-    }
+//        };
+//    }
 }

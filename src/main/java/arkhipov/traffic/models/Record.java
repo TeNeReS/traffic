@@ -1,5 +1,7 @@
 package arkhipov.traffic.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -13,6 +15,7 @@ public class Record {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "record_seq")
     private Integer id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -20,6 +23,9 @@ public class Record {
     private LocalDateTime dateTime;
     private int uplink;
     private int downlink;
+
+    public Record() {
+    }
 
     public Integer getId() {
         return id;
